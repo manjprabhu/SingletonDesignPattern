@@ -9,7 +9,11 @@ public class Account {
 
     public static Account getInstance() {
         if(INSTANCE == null) {
-            INSTANCE = new Account();
+            synchronized (Account.class) {
+                if(INSTANCE == null) {
+                    INSTANCE = new Account();
+                }
+            }
         }
         return INSTANCE;
     }
