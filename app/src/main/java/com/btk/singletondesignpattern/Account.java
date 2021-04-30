@@ -8,9 +8,9 @@ public class Account {
     }
 
     public static Account getInstance() {
-        if(INSTANCE == null) {
+        if (INSTANCE == null) {
             synchronized (Account.class) {
-                if(INSTANCE == null) {
+                if (INSTANCE == null) {
                     INSTANCE = new Account();
                 }
             }

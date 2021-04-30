@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button button = (Button) findViewById(R.id.button);
+        Button button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 Account account = Account.getInstance();
-                Log.v(TAG,"=== Thread one:"+account.hashCode());
+                Log.v(TAG, "=== Thread one:" + account.hashCode());
             }
         });
 
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 Account account = Account.getInstance();
-                Log.v(TAG,"=== Thread two:"+account.hashCode());
+                Log.v(TAG, "=== Thread two:" + account.hashCode());
             }
         });
 
