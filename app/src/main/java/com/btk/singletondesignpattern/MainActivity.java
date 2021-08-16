@@ -29,8 +29,8 @@ public class MainActivity extends AppCompatActivity {
         Thread threadOne = new Thread(new Runnable() {
             @Override
             public void run() {
-                Account account = Account.getInstance();
-                Log.v(TAG, "=== Thread one:" + account.hashCode());
+                Account accountOne = Account.getInstance();
+                Log.v(TAG, "=== Thread one:" + accountOne.hashCode());
             }
         });
 
@@ -40,11 +40,21 @@ public class MainActivity extends AppCompatActivity {
         Thread threadTwo = new Thread(new Runnable() {
             @Override
             public void run() {
-                Account account = Account.getInstance();
-                Log.v(TAG, "=== Thread two:" + account.hashCode());
+                Account accountTwo = Account.getInstance();
+                Log.v(TAG, "=== Thread two:" + accountTwo.hashCode());
             }
         });
 
         threadTwo.start();
+
+        Thread threadThree = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Account accountThree = Account.getInstance();
+                Log.v(TAG, "===>>> Thread Three:" + accountThree.hashCode());
+            }
+        });
+
+        threadThree.start();
     }
 }
